@@ -31,39 +31,21 @@ button{cursor:pointer}
 .post-caption{padding:0 15px 15px;font-size:13px;overflow-wrap:anywhere}
 .post-caption strong{margin-right:5px}
 .search-box,.upload-form input,.upload-form textarea,.profile-form input{width:100%;padding:12px;border:1px solid #dbdbdb;border-radius:9px;background:white;font-size:14px;outline:none;margin-bottom:13px}
-.trending-tabs{display:flex;gap:10px;overflow-x:auto;margin-bottom:18px}
-.trend-tab{padding:8px 15px;background:white;border:1px solid var(--line);border-radius:20px;font-size:13px;white-space:nowrap}
-.trend-tab.active{background:var(--ink);color:white;border-color:var(--ink)}
-.trending-item,.chat-item{display:flex;align-items:center;gap:13px;padding:11px;background:white;border:1px solid var(--line);border-radius:11px;margin-bottom:10px}
-.trending-item img{width:50px;height:50px;object-fit:cover;border-radius:8px}
-.trending-item p,.chat-item p{font-size:12px;color:var(--muted)}
 .upload-area{width:100%;min-height:220px;background:white;border:2px dashed #dbdbdb;border-radius:15px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--muted);gap:10px;margin-bottom:16px;padding:15px;text-align:center;cursor:pointer}
 .upload-area img{max-width:100%;max-height:300px;border-radius:10px;object-fit:contain}
 .btn-primary{width:100%;padding:12px;background:var(--ink);color:white;border:0;border-radius:9px;font-size:15px;font-weight:600}
-
-/* Upload Progress Styles */
 #upload-progress-container{display:none;margin-bottom:13px;background:#f8eaf0;border-radius:10px;padding:12px;text-align:center}
 .progress-bar-bg{width:100%;background:#e0d0d8;border-radius:8px;height:10px;overflow:hidden;margin-top:8px}
 .progress-bar-fill{width:0%;height:100%;background:var(--pink);transition:width 0.2s ease}
-
-.chat-page-title{font-size:23px;font-weight:700;margin:2px 0 3px}.chat-subtitle{font-size:13px;color:var(--muted);margin-bottom:18px}.chat-top-tabs{display:flex;border-bottom:1px solid #dbdbdb;margin-bottom:15px}
-.chat-tab{flex:1;text-align:center;padding:10px;color:var(--muted);cursor:pointer}
-.chat-tab.active{color:var(--ink);border-bottom:2px solid var(--pink);font-weight:500}
 .profile-header{display:flex;flex-direction:column;align-items:center;margin:8px 0 25px}
 .profile-pic-container{position:relative;margin-bottom:12px;width:100px;height:100px}
 .profile-pic{width:100%;height:100%;border-radius:50%;object-fit:cover;border:3px solid var(--orange);background:#f0f2f5}
-.edit-pic-btn{position:absolute;bottom:0;right:0;background:var(--ink);color:white;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:2px solid white;box-shadow:0 2px 5px #0003}
-.profile-form label{display:block;font-size:13px;margin:0 0 6px}
 .login-warning{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:55vh;text-align:center;padding:15px}
 .login-warning h3{margin-bottom:9px}.login-warning p{color:var(--muted);font-size:14px;margin-bottom:16px;max-width:300px}
 .bottom-nav{position:fixed;bottom:0;left:0;width:100%;background:var(--bg);border-top:1px solid var(--line);display:flex;justify-content:space-around;align-items:center;padding:8px 0 calc(8px + env(safe-area-inset-bottom));z-index:20}
 .nav-item{background:none;border:0;display:flex;align-items:center;justify-content:center;width:44px;height:42px;border-radius:12px}
 .nav-item svg{width:25px;height:25px;stroke:var(--ink);stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
 .nav-item.active svg{stroke:var(--pink);fill:#fc60761a}
-.nav-profile-img{width:29px;height:29px;border-radius:50%;object-fit:cover;border:2px solid transparent;background:#eee;display:block}
-.nav-item.active .nav-profile-img{border-color:var(--pink)}
-#nav-profile-btn{overflow:hidden}
-.notice{font-size:12px;color:var(--muted);text-align:center;margin-top:12px;line-height:1.6}
 @media(min-width:768px){.app-container{max-width:600px;border-left:1px solid var(--line);border-right:1px solid var(--line)}.header{padding:0 18px}.bottom-nav{max-width:600px;left:50%;transform:translateX(-50%);border-left:1px solid var(--line);border-right:1px solid var(--line);border-radius:18px 18px 0 0}}
 </style>
 </head>
@@ -89,7 +71,7 @@ button{cursor:pointer}
 <main id="search-page" class="page-section">
   <input id="search-input" type="search" class="search-box" placeholder="Search Noise..." aria-label="Search Noise">
   <div id="search-results">
-    <div class="trending-item"><img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=100&h=100&fit=crop" alt="Retro gaming"><div><h4>#RetroVibes</h4><p>24.5K Posts</p></div></div>
+    <div class="trending-item" style="display:flex;align-items:center;gap:13px;padding:11px;background:white;border:1px solid var(--line);border-radius:11px"><img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=100&h=100&fit=crop" style="width:50px;height:50px;object-fit:cover;border-radius:8px" alt="Retro gaming"><div><h4>#RetroVibes</h4><p style="font-size:12px;color:var(--muted)">24.5K Posts</p></div></div>
   </div>
 </main>
 
@@ -103,12 +85,10 @@ button{cursor:pointer}
   <input id="post-image-input" type="file" accept="image/*" hidden>
   <div class="upload-form">
     <textarea id="post-caption-input" rows="3" placeholder="Write a caption..." style="width:100%;padding:12px;border:1px solid #dbdbdb;border-radius:9px;margin-bottom:13px;resize:vertical"></textarea>
-    
     <div id="upload-progress-container">
       <span id="progress-text" style="font-size:13px;font-weight:600;color:var(--pink)">Uploading... 0%</span>
       <div class="progress-bar-bg"><div id="progress-bar-fill" class="progress-bar-fill"></div></div>
     </div>
-
     <button id="share-post-btn" class="btn-primary" type="button" onclick="sharePost()">Share Post</button>
   </div>
 </main>
@@ -118,9 +98,9 @@ button{cursor:pointer}
     <div class="profile-pic-container"><img src="https://ui-avatars.com/api/?name=User&background=fc6076&color=fff" id="main-profile-pic" class="profile-pic" alt="Profile photo"></div>
     <h3 id="profile-heading">Your Profile</h3><p id="profile-email" style="font-size:12px;color:#8e8e8e;margin-top:3px"></p>
   </div>
-  <form class="upload-form profile-form" id="profile-form">
-    <label for="prof-name">Full Name</label><input type="text" id="prof-name" value="User" autocomplete="name">
-    <label for="prof-username">Username</label><input type="text" id="prof-username" value="user_name" autocomplete="username">
+  <form class="upload-form profile-form" id="profile-form" onsubmit="event.preventDefault(); alert('Profile updated successfully!');">
+    <label for="prof-name" style="display:block;font-size:13px;margin:0 0 6px">Full Name</label><input type="text" id="prof-name" value="User">
+    <label for="prof-username" style="display:block;font-size:13px;margin:0 0 6px">Username</label><input type="text" id="prof-username" value="user_name">
     <button class="btn-primary" type="submit">Save Profile</button>
   </form>
 </main>
@@ -190,7 +170,6 @@ window.signInWithGoogle = async function() {
   try {
     const result = await signInWithPopup(auth, new GoogleAuthProvider());
     applySignedInUser(result.user);
-    alert("Signed in successfully!");
   } catch (error) {
     console.error(error);
     alert("Sign-in was not completed: " + (error.message || "Please try again."));
@@ -214,7 +193,6 @@ function applySignedInUser(user) {
   $("main-profile-pic").src = photo;
   $("prof-name").value = user.displayName || "New User";
   $("prof-username").value = (user.displayName || "user").toLowerCase().replace(/\s+/g,"_");
-  $("prof-gmail").value = user.email || "";
   $("profile-email").textContent = user.email || "";
   $("profile-heading").textContent = user.displayName || "Your Profile";
   openPage("home-page",document.querySelectorAll(".nav-item")[0]);
@@ -234,7 +212,7 @@ $("post-image-input").addEventListener("change", event => {
   const reader = new FileReader();
   reader.onload = e => {
     chosenPostImage = e.target.result;
-    $("upload-area").innerHTML = `<img src="${chosenPostImage}" alt="Selected post image"><span>Tap to change photo</span>`;
+    $("upload-area").innerHTML = `<img src="${chosenPostImage}" alt="Selected post image" style="max-width:100%;max-height:300px;border-radius:10px;object-fit:contain"><span>Tap to change photo</span>`;
   };
   reader.readAsDataURL(file);
 });
@@ -258,11 +236,11 @@ window.sharePost = async function() {
 
   let percent = 0;
   const interval = setInterval(() => {
-    percent += 15;
-    if (percent > 85) percent = 85;
+    percent += 20;
+    if (percent > 90) percent = 90;
     progressBarFill.style.width = percent + "%";
     progressText.textContent = `Uploading... ${percent}%`;
-  }, 150);
+  }, 120);
 
   try {
     if (db) {
@@ -292,7 +270,7 @@ window.sharePost = async function() {
       
       openPage("home-page",document.querySelectorAll(".nav-item")[0]);
       loadPosts();
-    }, 600);
+    }, 500);
 
   } catch (err) {
     clearInterval(interval);
@@ -312,6 +290,11 @@ async function loadPosts() {
     const container = $("firestore-posts");
     if(!container) return;
     container.innerHTML = "";
+    
+    if (querySnapshot.empty) {
+      container.innerHTML = '<div style="background:white;border:1px solid var(--line);padding:25px;border-radius:12px;text-align:center;color:var(--muted);font-size:13px;margin-top:20px">No posts yet. Be the first to share one!</div>';
+      return;
+    }
     
     querySnapshot.forEach(docSnap => {
       const data = docSnap.data();
@@ -346,12 +329,6 @@ async function loadPosts() {
 
 window.addEventListener("DOMContentLoaded", () => {
   loadPosts();
-});
-
-$("profile-form").addEventListener("submit",event=>{
-  event.preventDefault();
-  $("profile-heading").textContent = $("prof-name").value.trim() || "Your Profile";
-  alert("Profile updated successfully!");
 });
 </script>
 </body>
