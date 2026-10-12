@@ -164,24 +164,19 @@ button{cursor:pointer}
 </div>
 
 <script type="module">
-/*
-  REAL GOOGLE SIGN-IN SETUP:
-  1. Create a project at https://console.firebase.google.com/
-  2. Add a Web App and copy its Firebase config below.
-  3. In Authentication > Sign-in method, enable Google.
-  4. In Authentication > Settings, add your website domain to Authorized domains.
-  5. Serve this page from localhost or HTTPS; Google sign-in may not work from a file:// URL.
-  Until configured, the Sign In button explains the setup instead of pretending login succeeded.
-*/
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-  projectId: "YOUR_PROJECT_ID",
-  appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyC5xW2IYI-6Ica2ah8rdw5mhK...",
+  authDomain: "noise-app-ec4fe.firebaseapp.com",
+  projectId: "noise-app-ec4fe",
+  storageBucket: "noise-app-ec4fe.appspot.com",
+  messagingSenderId: "1066128501632",
+  appId: "1:1066128501632:web:cb9f9cb63d34...",
+  measurementId: "G-45Z3CRMQC2"
 };
+
 let auth = null;
 let firebaseReady = false;
 if (!Object.values(firebaseConfig).some(v => String(v).startsWith("YOUR_"))) {
@@ -347,10 +342,8 @@ document.querySelectorAll(".join-room-btn").forEach(btn=>btn.addEventListener("c
 }));
 $('room-back-btn').addEventListener('click',()=>{$('room-chat-view').style.display='none';$('chat-room-content').style.display='block';});
 $('room-compose').addEventListener('submit',event=>{event.preventDefault();const input=$('room-message-input');const value=input.value.trim();if(!value)return;const msg=document.createElement('div');msg.className='room-message mine';msg.textContent=value;$('room-chat-body').append(msg);input.value='';$('room-chat-body').scrollTop=$('room-chat-body').scrollHeight;});
-const roomPanel=$('room-create-panel');
-$('create-room-btn').addEventListener('click',()=>{if(!isLoggedIn){openPage('login-warning-page',null);return;}roomPanel.style.display=roomPanel.style.display==='block'?'none':'block';});
-$('cancel-create-room').addEventListener('click',()=>{roomPanel.style.display='none';});
-$('room-create-form').addEventListener('submit',event=>{event.preventDefault();if(!isLoggedIn){openPage('login-warning-page',null);return;}const name=$('new-room-name').value.trim();const type=$('new-room-type').value;const owned=[...document.querySelectorAll('#room-list .room-card[data-owned="true"]')];const pub=owned.filter(c=>c.dataset.privacy==='public').length;const priv=owned.filter(c=>c.dataset.privacy==='private').length;if(type==='public'&&pub>=1){alert('You can create only 1 public room.');return;}if(type==='private'&&priv>=2){alert('You can create only 2 private rooms per account.');return;}const card=document.createElement('article');card.className='room-card';card.dataset.category=$('new-room-category').value;card.dataset.owned='true';card.dataset.privacy=type;const avatar=document.createElement('div');avatar.className='room-avatar';avatar.style.background='#ffe0e8';avatar.textContent=type==='private'?'🔒':'💬';const details=document.createElement('div');details.className='room-details';const h=document.createElement('h4');h.textContent=name;const badge=document.createElement('span');badge.className='room-type';badge.textContent=type==='private'?'PRIVATE':'PUBLIC';h.append(badge);const desc=document.createElement('p');desc.textContent=$('new-room-desc').value.trim()||'A new Noise community room.';const meta=document.createElement('div');meta.className='room-meta';meta.textContent='♟ 1 Member · Created by you';details.append(h,desc,meta);const side=document.createElement('div');side.className='room-side';const join=document.createElement('button');join.className='join-room-btn';join.textContent='Open';join.addEventListener('click',()=>openRoom(name,type));side.append(join);card.append(avatar,details,side);$('room-list').prepend(card);$('room-create-form').reset();roomPanel.style.display='none';alert('Room created in this browser preview. Persistent rooms and private invite security require a backend.');});
+const roomPanel=$('room-create-panel');$('create-room-btn').addEventListener('click',()=>{if(!isLoggedIn){openPage('login-warning-page',null);return;}roomPanel.style.display=roomPanel.style.display==='block'?'none':'block';});
+$('cancel-create-room').addEventListener('click',()=>{roomPanel.style.display='none';});$('room-create-form').addEventListener('submit',event=>{event.preventDefault();if(!isLoggedIn){openPage('login-warning-page',null);return;}const name=$('new-room-name').value.trim();const type=$('new-room-type').value;const owned=[...document.querySelectorAll('#room-list .room-card[data-owned="true"]')];const pub=owned.filter(c=>c.dataset.privacy==='public').length;const priv=owned.filter(c=>c.dataset.privacy==='private').length;if(type==='public'&&pub>=1){alert('You can create only 1 public room.');return;}if(type==='private'&&priv>=2){alert('You can create only 2 private rooms per account.');return;}const card=document.createElement('article');card.className='room-card';card.dataset.category=$('new-room-category').value;card.dataset.owned='true';card.dataset.privacy=type;const avatar=document.createElement('div');avatar.className='room-avatar';avatar.style.background='#ffe0e8';avatar.textContent=type==='private'?'🔒':'💬';const details=document.createElement('div');details.className='room-details';const h=document.createElement('h4');h.textContent=name;const badge=document.createElement('span');badge.className='room-type';badge.textContent=type==='private'?'PRIVATE':'PUBLIC';h.append(badge);const desc=document.createElement('p');desc.textContent=$('new-room-desc').value.trim()||'A new Noise community room.';const meta=document.createElement('div');meta.className='room-meta';meta.textContent='♟ 1 Member · Created by you';details.append(h,desc,meta);const side=document.createElement('div');side.className='room-side';const join=document.createElement('button');join.className='join-room-btn';join.textContent='Open';join.addEventListener('click',()=>openRoom(name,type));side.append(join);card.append(avatar,details,side);$('room-list').prepend(card);$('room-create-form').reset();roomPanel.style.display='none';alert('Room created in this browser preview. Persistent rooms and private invite security require a backend.');});
 function openRoom(name,type='public'){if(!isLoggedIn){openPage('login-warning-page',null);return;}activeRoomName=name;$('active-room-name').textContent=name+' '+(type==='private'?'🔒':'');$('room-chat-body').replaceChildren();const welcome=document.createElement('div');welcome.className='room-message';welcome.textContent='Welcome to '+name+'! Keep the conversation friendly ✨';$('room-chat-body').append(welcome);$('chat-room-content').style.display='none';$('messages-content').style.display='none';$('room-chat-view').style.display='block';}
 document.querySelectorAll('.join-room-btn').forEach(btn=>btn.addEventListener('click',()=>openRoom(btn.dataset.room)));
 $('room-back-btn').addEventListener('click',()=>{$('room-chat-view').style.display='none';$('chat-room-content').style.display='block';});
@@ -361,8 +354,7 @@ document.getElementById('recharge-btn')?.addEventListener('click',()=>{if(!isLog
 document.getElementById('gift-btn')?.addEventListener('click',()=>{if(!isLoggedIn){openPage('login-warning-page',null);return;}const gifts=[['🌹 Rose',10],['❤️ Heart',25],['🧸 Teddy',50],['💎 Diamond',100],['🚀 Rocket',200]];const choice=prompt('Choose a gift:\n'+gifts.map((g,i)=>(i+1)+') '+g[0]+' — '+g[1]+' coins').join('\n')+'\nEnter 1-5');const g=gifts[Number(choice)-1];if(!g)return;if(noiseCoins<g[1]){alert('Not enough coins. Please recharge first.');return;}noiseCoins-=g[1];updateCoins();const el=document.createElement('div');el.className='room-message mine';el.innerHTML='';const span=document.createElement('span');span.className='gift-pop';span.textContent=g[0].split(' ')[0];el.append(span,document.createTextNode(' Gift sent! ('+g[1]+' coins)'));document.getElementById('room-chat-body').append(el);});
 document.getElementById('battle-btn')?.addEventListener('click',()=>{if(!isLoggedIn){openPage('login-warning-page',null);return;}const mode=prompt('Battle mode (demo):\n1) Emoji battle ⚔️\n2) Gift battle 🎁\n3) Cancel\nEnter 1 or 2');if(mode==='1'){const el=document.createElement('div');el.className='room-message mine';el.textContent='⚔️ Battle challenge sent! Waiting for another player (demo).';document.getElementById('room-chat-body').append(el);}else if(mode==='2'){alert('Gift Battle preview: send gifts to support a player. Live scores require a backend.');}});
 
-$('room-gif-btn').addEventListener('click',()=>{const url=prompt('Paste a GIF image URL (https://…):');if(!url)return;if(!/^https:\/\//i.test(url)){alert('Please use a secure https GIF URL.');return;}const wrap=document.createElement('div');wrap.className='room-message mine';const img=document.createElement('img');img.src=url;img.alt='Shared GIF';img.style.maxWidth='180px';img.style.borderRadius='10px';img.onerror=()=>{wrap.textContent='Could not load this GIF URL.'};wrap.append(img);$('room-chat-body').append(wrap);});
-$('room-add-btn').addEventListener('click',()=>{const email=prompt('Enter the person’s Gmail address to invite:');if(email&&/^[^\s@]+@gmail\.com$/i.test(email))alert('Invite preview for '+email+'. Real invites require Firebase/backend.');else if(email)alert('Please enter a valid @gmail.com address.');});
+$('room-gif-btn').addEventListener('click',()=>{const url=prompt('Paste a GIF image URL (https://…):');if(!url)return;if(!/^https:\/\//i.test(url)){alert('Please use a secure https GIF URL.');return;}const wrap=document.createElement('div');wrap.className='room-message mine';const img=document.createElement('img');img.src=url;img.alt='Shared GIF';img.style.maxWidth='180px';img.style.borderRadius='10px';img.onerror=()=>{wrap.textContent='Could not load this GIF URL.'};wrap.append(img);$('room-chat-body').append(wrap);});$('room-add-btn').addEventListener('click',()=>{const email=prompt('Enter the person’s Gmail address to invite:');if(email&&/^[^\s@]+@gmail\.com$/i.test(email))alert('Invite preview for '+email+'. Real invites require Firebase/backend.');else if(email)alert('Please enter a valid @gmail.com address.');});
 $('room-block-btn').addEventListener('click',()=>{const who=prompt('Enter the username to block:');if(who)alert(who+' blocked in preview only. Add backend moderation to enforce this across devices.');});
 $('room-report-btn').addEventListener('click',()=>{const reason=prompt('Why are you reporting this room/message?');if(reason)alert('Report noted in this preview. A real report system needs a database/moderation workflow.');});
 
