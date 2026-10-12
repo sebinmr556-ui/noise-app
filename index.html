@@ -206,13 +206,32 @@ function applySignedOutState() {
   $("main-profile-pic").src = defaultAvatar;
 }
 
+// Image compression to prevent 85% freeze
 $("post-image-input").addEventListener("change", event => {
   const file = event.target.files && event.target.files[0];
   if (!file) return;
   const reader = new FileReader();
   reader.onload = e => {
-    chosenPostImage = e.target.result;
-    $("upload-area").innerHTML = `<img src="${chosenPostImage}" alt="Selected post image" style="max-width:100%;max-height:300px;border-radius:10px;object-fit:contain"><span>Tap to change photo</span>`;
+    const img = new Image();
+    img.src = e.target.result;
+    img.onload = () => {
+      const canvas = document.createElement('canvas');
+      const MAX_WIDTH = 600;
+      const MAX_HEIGHT = 600;
+      let width = img.width;
+      let height = img.height;
+      if (width > height) {
+        if (width > MAX_WIDTH) { height *= MAX_WIDTH / width; width = MAX_WIDTH; }
+      } else {
+        if (height > MAX_HEIGHT) { width *= MAX_HEIGHT / height; height = MAX_HEIGHT; }
+      }
+      canvas.width = width;
+      canvas.height = height;
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(img, 0, 0, width, height);
+      chosenPostImage = canvas.toDataURL('image/jpeg', 0.7);
+      $("upload-area").innerHTML = `<img src="${chosenPostImage}" alt="Selected post image" style="max-width:100%;max-height:300px;border-radius:10px;object-fit:contain"><span>Tap to change photo</span>`;
+    };
   };
   reader.readAsDataURL(file);
 });
@@ -234,16 +253,16 @@ window.sharePost = async function() {
   shareBtn.disabled = true;
   shareBtn.style.opacity = "0.6";
 
-  let percent = 0;
-  const interval = setInterval(() => {
-    percent += 20;
-    if (percent > 90) percent = 90;
-    progressBarFill.style.width = percent + "%";
-    progressText.textContent = `Uploading... ${percent}%`;
-  }, 120);
+  let percent = 20;
+  progressBarFill.style.width = percent + "%";
+  progressText.textContent = `Uploading... ${percent}%`;
 
   try {
     if (db) {
+      percent = 60;
+      progressBarFill.style.width = percent + "%";
+      progressText.textContent = `Uploading... ${percent}%`;
+
       await addDoc(collection(db, "posts"), {
         username: safeName,
         avatar: avatarUrl,
@@ -253,7 +272,7 @@ window.sharePost = async function() {
       });
     }
 
-    clearInterval(interval);
+    percent = 100;
     progressBarFill.style.width = "100%";
     progressText.textContent = "Upload Complete! 100%";
 
@@ -273,7 +292,6 @@ window.sharePost = async function() {
     }, 500);
 
   } catch (err) {
-    clearInterval(interval);
     progressContainer.style.display = "none";
     shareBtn.disabled = false;
     shareBtn.style.opacity = "1";
