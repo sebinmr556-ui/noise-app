@@ -3,83 +3,437 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<meta http-equiv="Pragma" content="no-cache">
-<meta http-equiv="Expires" content="0">
-<title>Noise • Social</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<title>Noise • Instagram Style</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box;margin:0;padding:0;font-family:'Inter',sans-serif}
-:root{--bg:#ffffff;--ink:#000000;--muted:#737373;--line:#dbdbdb;--pink:#ff2d55;--tint:#fafafa}
-body{background:var(--bg);color:var(--ink);display:flex;justify-content:center;min-height:100vh}
-button,input,textarea{font:inherit}
+*{box-sizing:border-box;margin:0;padding:0;font-family:'Plus Jakarta Sans',sans-serif}
+:root{--bg:#ffffff;--text:#262626;--muted:#8e8e8e;--border:#dbdbdb;--primary:#0095f6;--like:#ff3040;--surface:#fafafa}
+body{background:var(--bg);color:var(--text);display:flex;justify-content:center;min-height:100vh}
+button,input,textarea{font:inherit;outline:none}
 button{cursor:pointer}
-.app-container{width:100%;max-width:470px;min-height:100vh;background:var(--bg);position:relative;padding-bottom:60px;border-left:1px solid var(--line);border-right:1px solid var(--line)}
+.app-container{width:100%;max-width:470px;min-height:100vh;background:var(--bg);position:relative;padding-bottom:60px;border-left:1px solid var(--border);border-right:1px solid var(--border)}
 
 /* Header */
-.header{height:54px;padding:0 16px;background:#ffffff;position:sticky;top:0;z-index:20;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}
-.app-logo{font-size:22px;font-weight:700;letter-spacing:-0.5px}
-.header-right{display:flex;align-items:center;gap:15px}
-.header-icon-btn{background:none;border:0;font-size:22px}
-.login-btn{background:var(--ink);color:#fff;border:0;padding:6px 14px;border-radius:8px;font-size:12px;font-weight:600}
+.ig-header{height:54px;padding:0 16px;background:var(--bg);position:sticky;top:0;z-index:30;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+.ig-logo{font-size:24px;font-weight:700;letter-spacing:-0.5px;font-family:sans-serif}
+.ig-header-actions{display:flex;align-items:center;gap:16px}
+.ig-btn-icon{background:none;border:0;font-size:22px}
+.ig-login-btn{background:var(--primary);color:#fff;border:0;padding:6px 14px;border-radius:8px;font-size:13px;font-weight:600}
 
 /* Sections */
-.page-section{display:none;padding-bottom:30px;animation:fadeIn .2s}
+.page-section{display:none;padding-bottom:20px}
 .page-section.active{display:block}
-@keyframes fadeIn{from{opacity:0}to{opacity:1}}
 
-/* Stories Bar */
-.stories-bar{display:flex;gap:12px;padding:10px 15px;overflow-x:auto;border-bottom:1px solid var(--line);background:#fff;scrollbar-width:none}
-.story-item{display:flex;flex-direction:column;align-items:center;gap:4px;flex:none;cursor:pointer}
-.story-ring{width:64px;height:64px;border-radius:50%;padding:2px;background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)}
+/* Stories */
+.stories-container{display:flex;gap:12px;padding:12px 16px;overflow-x:auto;border-bottom:1px solid var(--border);background:var(--bg);scrollbar-width:none}
+.story-ring{width:66px;height:66px;border-radius:50%;padding:2px;background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);flex:none;cursor:pointer}
 .story-avatar{width:60px;height:60px;border-radius:50%;object-fit:cover;border:2px solid #fff}
-.story-name{font-size:11px;color:var(--ink);width:64px;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.story-user{font-size:11px;text-align:center;width:66px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin-top:4px;color:var(--text)}
 
 /* Post Card */
-.post-card{background:#fff;border-bottom:1px solid var(--line);margin-bottom:12px}
-.post-header{display:flex;align-items:center;justify-content:space-between;padding:10px 14px}
-.post-user-wrap{display:flex;align-items:center;gap:10px}
-.avatar{width:32px;height:32px;border-radius:50%;object-fit:cover}
-.post-image{width:100%;max-height:500px;object-fit:cover;display:block;background:#000}
-.post-actions{padding:10px 14px 6px;display:flex;justify-content:space-between}
-.post-actions-left{display:flex;gap:14px}
-.action-btn{background:none;border:0;font-size:24px;line-height:1}
-.action-btn.liked{color:var(--pink)}
-.post-likes{padding:0 14px 4px;font-size:13px;font-weight:600}
-.post-caption{padding:0 14px 12px;font-size:13px;overflow-wrap:anywhere;line-height:1.4}
-.post-caption strong{margin-right:6px;font-weight:600}
+.ig-post{background:var(--bg);border-bottom:1px solid var(--border);margin-bottom:12px}
+.ig-post-header{display:flex;align-items:center;justify-content:space-between;padding:10px 14px}
+.ig-user-info{display:flex;align-items:center;gap:10px}
+.ig-avatar{width:32px;height:32px;border-radius:50%;object-fit:cover}
+.ig-username{font-size:13px;font-weight:600}
+.ig-post-img{width:100%;max-height:550px;object-fit:cover;background:#000;display:block}
+.ig-post-actions{padding:10px 14px 6px;display:flex;justify-content:space-between}
+.ig-actions-left{display:flex;gap:14px}
+.ig-action-btn{background:none;border:0;font-size:24px;line-height:1}
+.ig-action-btn.liked{color:var(--like)}
+.ig-likes-count{padding:0 14px 4px;font-size:13px;font-weight:600}
+.ig-caption{padding:0 14px 12px;font-size:13px;line-height:1.4;word-break:break-word}
+.ig-caption strong{margin-right:6px}
 
 /* Profile Instagram Style */
-.profile-header-ig{padding:15px 16px 10px}
-.profile-top-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:15px}
-.profile-ig-pic{width:82px;height:82px;border-radius:50%;object-fit:cover;border:1px solid var(--line);background:#eee}
-.profile-stats{display:flex;flex:1;justify-content:space-around;text-align:center}
-.stat-num{font-size:16px;font-weight:700}
-.stat-label{font-size:11px;color:var(--muted)}
-.profile-bio-section{padding:0 4px 12px}
-.profile-bio-section h3{font-size:14px;font-weight:600}
-.profile-bio-section p{font-size:13px;color:var(--muted);margin-top:2px}
-.profile-actions-row{display:flex;gap:6px;margin-bottom:15px}
-.ig-btn{flex:1;background:#efefef;border:0;padding:7px;border-radius:8px;font-size:13px;font-weight:600;color:var(--ink)}
+.ig-profile-header{padding:16px}
+.ig-profile-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.ig-profile-pic-wrap{position:relative;width:82px;height:82px}
+.ig-profile-pic{width:100%;height:100%;border-radius:50%;object-fit:cover;border:1px solid var(--border)}
+.ig-profile-add-btn{position:absolute;bottom:0;right:0;background:var(--primary);color:#fff;border:none;border-radius:50%;width:24px;height:24px;font-size:14px;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.ig-stats{display:flex;flex:1;justify-content:space-around;text-align:center}
+.ig-stat-num{font-size:16px;font-weight:700}
+.ig-stat-label{font-size:12px;color:var(--muted)}
+.ig-bio h3{font-size:14px;font-weight:600}
+.ig-bio p{font-size:13px;color:var(--muted);margin-top:2px}
+.ig-profile-actions{display:flex;gap:6px;margin-top:14px}
+.ig-edit-btn{flex:1;background:var(--surface);border:1px solid var(--border);padding:7px;border-radius:8px;font-size:13px;font-weight:600}
 
-/* Profile Grid Tabs */
-.profile-tabs{display:flex;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.profile-tab{flex:1;text-align:center;padding:12px;font-size:16px;color:var(--muted);cursor:pointer;border-bottom:1px solid transparent}
-.profile-tab.active{color:var(--ink);border-bottom-color:var(--ink)}
-.profile-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--line)}
-.grid-item{aspect-ratio:1;background:#fff;overflow:hidden}
-.grid-item img{width:100%;height:100%;object-fit:cover}
+/* Profile Tabs & Grid */
+.ig-profile-tabs{display:flex;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.ig-tab{flex:1;text-align:center;padding:12px;font-size:16px;color:var(--muted);cursor:pointer;border-bottom:1px solid transparent}
+.ig-tab.active{color:var(--text);border-bottom-color:var(--text)}
+.ig-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border)}
+.ig-grid-item{aspect-ratio:1;background:#fff;overflow:hidden}
+.ig-grid-item img{width:100%;height:100%;object-fit:cover}
 
 /* Upload Page */
-.upload-wrapper{padding:16px}
-.upload-area{width:100%;height:280px;background:var(--tint);border:2px dashed var(--line);border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--muted);gap:8px;margin-bottom:15px;cursor:pointer;overflow:hidden}
-.upload-area img{width:100%;height:100%;object-fit:cover}
-.upload-form input, .upload-form textarea{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:8px;font-size:13px;background:var(--tint);outline:none;margin-bottom:12px}
-.btn-ig{width:100%;padding:10px;background:#0095f6;color:white;border:0;border-radius:8px;font-size:14px;font-weight:600}
-#upload-progress-container{display:none;margin-bottom:12px;background:#efefef;border-radius:8px;padding:10px;text-align:center}
-.progress-bar-bg{width:100%;background:#dbdbdb;border-radius:4px;height:6px;overflow:hidden;margin-top:6px}
-.progress-bar-fill{width:0%;height:100%;background:#0095f6;transition:width 0.2s}
+.ig-upload-wrap{padding:16px}
+.ig-dropzone{width:100%;height:280px;background:var(--surface);border:2px dashed var(--border);border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--muted);gap:8px;margin-bottom:14px;cursor:pointer;overflow:hidden}
+.ig-dropzone img{width:100%;height:100%;object-fit:cover}
+.ig-input{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:8px;font-size:13px;background:var(--surface);margin-bottom:12px}
+.ig-share-btn{width:100%;padding:10px;background:var(--primary);color:#fff;border:0;border-radius:8px;font-size:14px;font-weight:600}
 
-/* Bottom Nav Instagram Style */
-.bottom-nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:470px;background:#ffffff;border-top:1px solid var(--line);display:flex;justify-content:space-around;align-items:center;height:50px;z-index:20}
-.nav-item{background:none;border:0;display:flex;align
+#upload-progress-container{display:none;margin-bottom:12px;background:var(--surface);border-radius:8px;padding:10px;text-align:center}
+.progress-bar-bg{width:100%;background:var(--border);border-radius:4px;height:6px;overflow:hidden;margin-top:6px}
+.progress-bar-fill{width:0%;height:100%;background:var(--primary);transition:width 0.2s}
+
+/* Bottom Navigation */
+.ig-nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:470px;background:var(--bg);border-top:1px solid var(--border);display:flex;justify-content:space-around;align-items:center;height:50px;z-index:30}
+.ig-nav-item{background:none;border:0;display:flex;align-items:center;justify-content:center;width:40px;height:40px}
+.ig-nav-item svg{width:24px;height:24px;stroke:var(--text);stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.ig-nav-item.active svg{stroke:var(--text);fill:var(--text)}
+.ig-nav-profile-img{width:26px;height:26px;border-radius:50%;object-fit:cover;border:1.5px solid transparent}
+.ig-nav-item.active .ig-nav-profile-img{border-color:var(--text)}
+</style>
+</head>
+<body>
+<div class="app-container">
+
+<header class="ig-header">
+  <div class="ig-logo">Noise</div>
+  <div class="ig-header-actions">
+    <button class="ig-btn-icon">♡</button>
+    <button id="top-login-btn" class="ig-login-btn" type="button" onclick="signInWithGoogle()">Log In</button>
+    <button id="signout-btn" class="ig-btn-icon" type="button" onclick="signOutUser()" style="display:none;font-size:12px;font-weight:600">Logout</button>
+  </div>
+</header>
+
+<!-- HOME FEED -->
+<main id="home-page" class="page-section active">
+  <div class="stories-bar">
+    <div style="display:flex;gap:12px;padding:0 4px">
+      <div class="story-item"><div class="story-ring"><img class="story-avatar" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100"></div><div class="story-user">maria</div></div>
+      <div class="story-item"><div class="story-ring"><img class="story-avatar" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100"></div><div class="story-user">alex</div></div>
+      <div class="story-item"><div class="story-ring"><img class="story-avatar" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100"></div><div class="story-user">sophia</div></div>
+      <div class="story-item"><div class="story-ring"><img class="story-avatar" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100"></div><div class="story-user">liam</div></div>
+    </div>
+  </div>
+  <div id="firestore-posts"></div>
+</main>
+
+<!-- SEARCH -->
+<main id="search-page" class="page-section">
+  <div style="padding:12px 16px"><input type="search" placeholder="Search" class="ig-input" style="margin-bottom:0"></div>
+  <div style="padding:0 16px">
+    <div style="display:flex;align-items:center;gap:12px;padding:8px 0"><img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=100" style="width:44px;height:44px;border-radius:50%;object-fit:cover"><div><h4 style="font-size:13px">#RetroVibes</h4><p style="font-size:12px;color:var(--muted)">24.5K posts</p></div></div>
+  </div>
+</main>
+
+<!-- UPLOAD POST -->
+<main id="upload-page" class="page-section">
+  <div class="ig-upload-wrap">
+    <h3 style="font-size:16px;font-weight:600;margin-bottom:12px">Create new post</h3>
+    <label class="ig-dropzone" for="post-image-input" id="upload-area">
+      <span style="font-size:32px">📁</span>
+      <span style="font-size:13px;font-weight:500">Select photo from device</span>
+    </label>
+    <input id="post-image-input" type="file" accept="image/*" hidden>
+    <textarea id="post-caption-input" rows="3" placeholder="Write a caption..." class="ig-input" style="resize:vertical"></textarea>
+    <div id="upload-progress-container">
+      <span id="progress-text" style="font-size:12px;font-weight:600">Uploading... 0%</span>
+      <div class="progress-bar-bg"><div id="progress-bar-fill" class="progress-bar-fill"></div></div>
+    </div>
+    <button id="share-post-btn" class="ig-share-btn" type="button" onclick="sharePost()">Share</button>
+  </div>
+</main>
+
+<!-- REELS -->
+<main id="reels-page" class="page-section">
+  <div style="text-align:center;padding:80px 20px;color:var(--muted)">
+    <h3>Reels</h3>
+    <p style="font-size:13px;margin-top:6px">Short videos will appear here.</p>
+  </div>
+</main>
+
+<!-- PROFILE -->
+<main id="profile-page" class="page-section">
+  <div class="ig-profile-header">
+    <div class="ig-profile-top">
+      <div class="ig-profile-pic-wrap">
+        <img src="https://ui-avatars.com/api/?name=User&background=000&color=fff" id="main-profile-pic" class="ig-profile-pic">
+        <button class="ig-profile-add-btn" type="button" onclick="document.getElementById('profile-file-input').click()">+</button>
+        <input type="file" id="profile-file-input" hidden accept="image/*">
+      </div>
+      <div class="ig-stats">
+        <div><div class="ig-stat-num" id="user-posts-count">0</div><div class="ig-stat-label">posts</div></div>
+        <div><div class="ig-stat-num">148</div><div class="ig-stat-label">followers</div></div>
+        <div><div class="ig-stat-num">210</div><div class="ig-stat-label">following</div></div>
+      </div>
+    </div>
+    <div class="ig-bio">
+      <h3 id="profile-heading">User Name</h3>
+      <p>Digital Creator ✨<br>Noise App Official 🚀</p>
+    </div>
+    <div class="ig-profile-actions">
+      <button class="ig-edit-btn" type="button">Edit profile</button>
+      <button class="ig-edit-btn" type="button">Share profile</button>
+    </div>
+  </div>
+  <div class="ig-profile-tabs">
+    <div class="ig-tab active">🟦</div>
+    <div class="ig-tab">🏷️</div>
+  </div>
+  <div class="ig-grid" id="profile-user-grid"></div>
+</main>
+
+<!-- LOGIN WARNING -->
+<main id="login-warning-page" class="page-section">
+  <div style="text-align:center;padding:80px 20px">
+    <h3 style="font-size:18px;margin-bottom:8px">Log in to Noise</h3>
+    <p style="font-size:13px;color:var(--muted);margin-bottom:20px">You need to sign in with Google to share posts and view your profile.</p>
+    <button class="ig-share-btn" type="button" onclick="signInWithGoogle()" style="max-width:220px;margin:0 auto">Log In with Google</button>
+  </div>
+</main>
+
+<!-- BOTTOM NAVIGATION -->
+<nav class="ig-nav">
+  <button class="ig-nav-item active" type="button" onclick="openPage('home-page',this)"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></button>
+  <button class="ig-nav-item" type="button" onclick="openPage('search-page',this)"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
+  <button class="ig-nav-item" type="button" onclick="openPage('upload-page',this)"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"></rect><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg></button>
+  <button class="ig-nav-item" type="button" onclick="openPage('reels-page',this)"><svg viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg></button>
+  <button class="ig-nav-item" type="button" id="nav-profile-btn" onclick="openPage('profile-page',this)"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></button>
+</nav>
+
+</div>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import { getFirestore, collection, addDoc, getDocs, query, orderBy, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyC5xXw2IYI-6Ica2aH8rdw5mhKGDmI4zJ0",
+  authDomain: "noise-app-ec4fe.firebaseapp.com",
+  projectId: "noise-app-ec4fe",
+  storageBucket: "noise-app-ec4fe.firebasestorage.app",
+  messagingSenderId: "1066128501632",
+  appId: "1:1066128501632:web:cb9f9cb63d3464b7f3af65",
+  measurementId: "G-45Z3CRMQC2"
+};
+
+let auth = null, db = null, firebaseReady = false;
+try {
+  const app = initializeApp(firebaseConfig);
+  auth = getAuth(app);
+  db = getFirestore(app);
+  firebaseReady = true;
+  onAuthStateChanged(auth, user => {
+    if (user) applySignedInUser(user);
+    else applySignedOutState();
+  });
+} catch (e) { console.error(e); }
+
+let isLoggedIn = false, chosenPostImage = "", currentUser = null;
+const defaultAvatar = "https://ui-avatars.com/api/?name=User&background=000&color=fff";
+const $ = id => document.getElementById(id);
+
+window.openPage = function(pageId, navElement) {
+  if (!isLoggedIn && ["upload-page","profile-page"].includes(pageId)) pageId = "login-warning-page";
+  document.querySelectorAll(".page-section").forEach(p => p.classList.remove("active"));
+  document.querySelectorAll(".ig-nav-item").forEach(n => n.classList.remove("active"));
+  $(pageId).classList.add("active");
+  if (navElement) navElement.classList.add("active");
+  window.scrollTo({top:0,behavior:"smooth"});
+};
+
+window.signInWithGoogle = async function() {
+  if (!firebaseReady || !auth) { alert("Firebase not ready."); return; }
+  try {
+    const res = await signInWithPopup(auth, new GoogleAuthProvider());
+    applySignedInUser(res.user);
+  } catch (e) { alert("Login failed: " + e.message); }
+};
+
+window.signOutUser = async function() {
+  if (auth && firebaseReady) { try { await signOut(auth); } catch(e){} }
+  applySignedOutState();
+  openPage("home-page", document.querySelectorAll(".ig-nav-item")[0]);
+};
+
+function applySignedInUser(user) {
+  currentUser = user;
+  isLoggedIn = true;
+  $("top-login-btn").style.display = "none";
+  $("signout-btn").style.display = "inline-block";
+  const photo = user.photoURL || defaultAvatar;
+  $("main-profile-pic").src = photo;
+  $("profile-heading").textContent = user.displayName || "User";
+  const nav = $("nav-profile-btn");
+  nav.innerHTML = `<img id="nav-profile-img" class="ig-nav-profile-img" alt="Profile">`;
+  $("nav-profile-img").src = photo;
+  openPage("home-page", document.querySelectorAll(".ig-nav-item")[0]);
+  loadPosts();
+}
+
+function applySignedOutState() {
+  currentUser = null;
+  isLoggedIn = false;
+  $("top-login-btn").style.display = "inline-block";
+  $("signout-btn").style.display = "none";
+  $("main-profile-pic").src = defaultAvatar;
+  $("nav-profile-btn").innerHTML = '<svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>';
+}
+
+$("profile-file-input").addEventListener("change", e => {
+  const file = e.target.files && e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = ev => {
+    const img = new Image();
+    img.src = ev.target.result;
+    img.onload = () => {
+      const canvas = document.createElement('canvas');
+      canvas.width = 200; canvas.height = 200;
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(img, 0, 0, 200, 200);
+      const res = canvas.toDataURL('image/jpeg', 0.7);
+      $("main-profile-pic").src = res;
+      if ($("nav-profile-img")) $("nav-profile-img").src = res;
+    };
+  };
+  reader.readAsDataURL(file);
+});
+
+$("post-image-input").addEventListener("change", e => {
+  const file = e.target.files && e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = ev => {
+    const img = new Image();
+    img.src = ev.target.result;
+    img.onload = () => {
+      const canvas = document.createElement('canvas');
+      const MAX = 600;
+      let w = img.width, h = img.height;
+      if (w > h) { if (w > MAX) { h *= MAX/w; w = MAX; } }
+      else { if (h > MAX) { w *= MAX/h; h = MAX; } }
+      canvas.width = w; canvas.height = h;
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(img, 0, 0, w, h);
+      chosenPostImage = canvas.toDataURL('image/jpeg', 0.7);
+      $("upload-area").innerHTML = `<img src="${chosenPostImage}" alt="Preview">`;
+    };
+  };
+  reader.readAsDataURL(file);
+});
+
+window.sharePost = async function() {
+  if (!isLoggedIn) { openPage("login-warning-page", null); return; }
+  if (!chosenPostImage) { alert("Please select a photo."); return; }
+
+  const caption = $("post-caption-input").value.trim();
+  const name = currentUser?.displayName || "user";
+  const avatar = $("main-profile-pic").src;
+
+  const progressContainer = $("upload-progress-container");
+  const progressBarFill = $("progress-bar-fill");
+  const progressText = $("progress-text");
+  const shareBtn = $("share-post-btn");
+
+  progressContainer.style.display = "block";
+  shareBtn.disabled = true;
+
+  let percent = 30;
+  progressBarFill.style.width = percent + "%";
+  progressText.textContent = `Uploading... ${percent}%`;
+
+  try {
+    if (db) {
+      percent = 70;
+      progressBarFill.style.width = percent + "%";
+      progressText.textContent = `Saving... ${percent}%`;
+
+      await addDoc(collection(db, "posts"), {
+        username: name,
+        avatar: avatar,
+        image: chosenPostImage,
+        caption: caption,
+        createdAt: serverTimestamp(),
+        uid: currentUser.uid
+      });
+    }
+
+    percent = 100;
+    progressBarFill.style.width = "100%";
+    progressText.textContent = "Done! 100%";
+
+    setTimeout(() => {
+      progressContainer.style.display = "none";
+      progressBarFill.style.width = "0%";
+      shareBtn.disabled = false;
+      $("post-caption-input").value = "";
+      chosenPostImage = "";
+      $("post-image-input").value = "";
+      $("upload-area").innerHTML = '<span style="font-size:32px">📁</span><span style="font-size:13px;font-weight:500">Select photo from device</span>';
+      openPage("home-page", document.querySelectorAll(".ig-nav-item")[0]);
+      loadPosts();
+    }, 500);
+
+  } catch (err) {
+    progressContainer.style.display = "none";
+    shareBtn.disabled = false;
+    alert("Error: " + err.message);
+  }
+};
+
+async function loadPosts() {
+  if (!db) return;
+  try {
+    const q = query(collection(db, "posts"), orderBy("createdAt", "desc"));
+    const snap = await getDocs(q);
+    const container = $("firestore-posts");
+    const grid = $("profile-user-grid");
+    if (!container) return;
+    container.innerHTML = "";
+    if (grid) grid.innerHTML = "";
+
+    let count = 0;
+    if (snap.empty) {
+      container.innerHTML = '<div style="text-align:center;padding:40px;color:var(--muted);font-size:13px">No posts yet.</div>';
+      return;
+    }
+
+    snap.forEach(docSnap => {
+      const data = docSnap.data();
+      const card = document.createElement("article");
+      card.className = "ig-post";
+      card.innerHTML = `
+        <div class="ig-post-header">
+          <div class="ig-user-info">
+            <img class="ig-avatar" src="${data.avatar || defaultAvatar}">
+            <span class="ig-username">${data.username || "user"}</span>
+          </div>
+          <span>•••</span>
+        </div>
+        <img class="ig-post-img" src="${data.image}">
+        <div class="ig-post-actions">
+          <div class="ig-actions-left">
+            <button class="ig-action-btn" onclick="this.classList.toggle('liked');this.textContent=this.classList.contains('liked')?'❤️':'♡';">♡</button>
+            <button class="ig-action-btn">💬</button>
+            <button class="ig-action-btn">✈️</button>
+          </div>
+          <button class="ig-action-btn">🔖</button>
+        </div>
+        <div class="ig-likes-count">1,245 likes</div>
+        <div class="ig-caption"><strong>${data.username || "user"}</strong> ${data.caption || ""}</div>
+      `;
+      container.append(card);
+
+      if (currentUser && data.uid === currentUser.uid && grid) {
+        count++;
+        const item = document.createElement("div");
+        item.className = "ig-grid-item";
+        item.innerHTML = `<img src="${data.image}">`;
+        grid.append(item);
+      }
+    });
+
+    if ($("user-posts-count")) $("user-posts-count").textContent = count;
+  } catch (e) { console.error(e); }
+}
+
+window.addEventListener("DOMContentLoaded", () => { loadPosts(); });
+</script>
+</body>
+</html>
