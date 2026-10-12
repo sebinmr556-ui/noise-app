@@ -15,7 +15,6 @@ button{cursor:pointer}
 .header{height:60px;padding:0 18px;background:var(--bg);position:sticky;top:0;z-index:10;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}
 .app-logo{height:40px;width:130px}
 .header-right{display:flex;align-items:center;gap:12px}
-.header-icon{display:flex;align-items:center;justify-content:center}
 .login-btn{background:var(--ink);color:#fff;border:0;padding:8px 15px;border-radius:22px;font-size:13px;font-weight:500;display:flex;align-items:center;gap:7px}
 .google-g{font-weight:700;font-size:16px;color:#fff}
 .page-section{display:none;padding:15px 15px 25px;max-width:600px;margin:0 auto;animation:fadeIn .25s}
@@ -41,11 +40,15 @@ button{cursor:pointer}
 .upload-area{width:100%;min-height:220px;background:white;border:2px dashed #dbdbdb;border-radius:15px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--muted);gap:10px;margin-bottom:16px;padding:15px;text-align:center;cursor:pointer}
 .upload-area img{max-width:100%;max-height:300px;border-radius:10px;object-fit:contain}
 .btn-primary{width:100%;padding:12px;background:var(--ink);color:white;border:0;border-radius:9px;font-size:15px;font-weight:600}
+
+/* Upload Progress Styles */
+#upload-progress-container{display:none;margin-bottom:13px;background:#f8eaf0;border-radius:10px;padding:12px;text-align:center}
+.progress-bar-bg{width:100%;background:#e0d0d8;border-radius:8px;height:10px;overflow:hidden;margin-top:8px}
+.progress-bar-fill{width:0%;height:100%;background:var(--pink);transition:width 0.2s ease}
+
 .chat-page-title{font-size:23px;font-weight:700;margin:2px 0 3px}.chat-subtitle{font-size:13px;color:var(--muted);margin-bottom:18px}.chat-top-tabs{display:flex;border-bottom:1px solid #dbdbdb;margin-bottom:15px}
 .chat-tab{flex:1;text-align:center;padding:10px;color:var(--muted);cursor:pointer}
 .chat-tab.active{color:var(--ink);border-bottom:2px solid var(--pink);font-weight:500}
-.chat-item img{width:45px;height:45px;border-radius:50%;object-fit:cover}
-.room-filters{display:flex;gap:8px;overflow-x:auto;padding:2px 0 14px;margin-bottom:2px;scrollbar-width:none}.room-filter{flex:none;border:1px solid var(--line);background:#fff;border-radius:22px;padding:8px 14px;font-size:12px;color:var(--ink)}.room-filter.active{background:var(--ink);border-color:var(--ink);color:#fff}.room-card{display:grid;grid-template-columns:58px minmax(0,1fr) auto;align-items:center;gap:11px;background:#fff;border:1px solid var(--line);border-radius:17px;padding:13px 11px;margin-bottom:10px;box-shadow:0 4px 14px #00000005}.room-avatar{width:56px;height:56px;border-radius:17px;display:flex;align-items:center;justify-content:center;font-size:27px;position:relative}.room-avatar:after{content:"";position:absolute;width:10px;height:10px;border-radius:50%;background:#18bd78;border:2px solid white;right:-1px;bottom:-1px}.room-details{min-width:0}.room-details h4{font-size:13px;font-weight:600;margin-bottom:3px}.room-details p{font-size:11px;color:var(--muted);line-height:1.45}.room-meta{display:flex;gap:10px;flex-wrap:wrap;font-size:10px;color:#778092;margin-top:6px}.room-meta .online{color:#0aa96c}.room-side{display:flex;flex-direction:column;align-items:flex-end;gap:9px}.join-room-btn{background:var(--pink);color:#fff;border:0;border-radius:20px;padding:8px 13px;font-size:11px;font-weight:600}.room-preview{font-size:10px;color:#6f7b91;max-width:100px;text-align:right;line-height:1.4}.create-room-btn{width:100%;border:0;border-radius:12px;padding:12px;background:linear-gradient(100deg,#fc6076,#ff8a67);color:#fff;font-size:13px;font-weight:600;margin:3px 0 12px}.room-chat-view{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden}.room-chat-header{display:flex;align-items:center;gap:10px;padding:13px;border-bottom:1px solid var(--line)}.room-back{border:0;background:#fff;font-size:22px}.room-chat-body{padding:14px;min-height:220px;background:#fffafd}.room-message{background:#fff;border:1px solid var(--line);border-radius:13px 13px 13px 3px;padding:10px 12px;margin:8px 0;max-width:85%;font-size:12px}.room-message.mine{margin-left:auto;background:#fff0f3;border-color:#ffd6de;border-radius:13px 13px 3px 13px}.room-compose{display:flex;gap:8px;padding:10px;border-top:1px solid var(--line)}.room-compose input{min-width:0;flex:1;border:1px solid var(--line);border-radius:22px;padding:10px 12px;font-size:12px}.room-compose button{border:0;border-radius:50%;width:39px;height:39px;background:var(--pink);color:white;font-size:17px}.room-tools{display:flex;gap:7px;padding:8px 10px;background:#fff;border-top:1px solid var(--line);flex-wrap:wrap}.room-tools button{border:1px solid var(--line);background:#fff;border-radius:18px;padding:7px 10px;font-size:11px}.room-create-panel{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px;margin:10px 0;display:none}.room-create-panel label{display:block;font-size:12px;margin:9px 0 4px}.room-create-panel input,.room-create-panel select,.room-create-panel textarea{width:100%;padding:10px;border:1px solid var(--line);border-radius:10px;font-size:12px;background:white}.room-create-actions{display:flex;gap:8px;margin-top:12px}.room-create-actions button{flex:1;border:0;border-radius:10px;padding:10px;background:var(--pink);color:white}.room-create-actions .cancel{background:#f4eef1;color:var(--ink)}.room-type{font-size:10px;border-radius:10px;padding:3px 7px;background:#f8eaf0;margin-left:5px}
 .profile-header{display:flex;flex-direction:column;align-items:center;margin:8px 0 25px}
 .profile-pic-container{position:relative;margin-bottom:12px;width:100px;height:100px}
 .profile-pic{width:100%;height:100%;border-radius:50%;object-fit:cover;border:3px solid var(--orange);background:#f0f2f5}
@@ -61,10 +64,7 @@ button{cursor:pointer}
 .nav-item.active .nav-profile-img{border-color:var(--pink)}
 #nav-profile-btn{overflow:hidden}
 .notice{font-size:12px;color:var(--muted);text-align:center;margin-top:12px;line-height:1.6}
-.empty-state{background:white;border:1px solid var(--line);padding:25px;border-radius:12px;text-align:center;color:var(--muted);font-size:13px}
 @media(min-width:768px){.app-container{max-width:600px;border-left:1px solid var(--line);border-right:1px solid var(--line)}.header{padding:0 18px}.bottom-nav{max-width:600px;left:50%;transform:translateX(-50%);border-left:1px solid var(--line);border-right:1px solid var(--line);border-radius:18px 18px 0 0}}
-
-.noise-economy{display:flex;align-items:center;gap:7px;flex-wrap:wrap;padding:10px;background:#fff8fb;border-top:1px solid var(--line)}.coin-balance{font-size:12px;background:#fff0c7;border-radius:18px;padding:8px 10px}.noise-economy button{border:0;border-radius:18px;padding:8px 11px;background:#ffe1eb;color:#9d3154;font-size:11px;font-weight:600}.noise-economy #recharge-btn{background:#fc6076;color:#fff}.gift-pop{display:inline-block;font-size:34px;animation:gift-pop .65s ease both}@keyframes gift-pop{0%{transform:scale(.2) rotate(-25deg);opacity:0}65%{transform:scale(1.25) rotate(8deg);opacity:1}100%{transform:scale(1);opacity:1}}
 </style>
 </head>
 <body>
@@ -77,80 +77,51 @@ button{cursor:pointer}
     </svg>
   </div>
   <div class="header-right">
-    <button class="header-icon" id="notification-btn" aria-label="Notifications" title="Notifications" style="border:0;background:none">
-      <svg viewBox="0 0 24 24" width="27" height="27" aria-hidden="true"><path fill="#fc6076" d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4a1.5 1.5 0 0 0-3 0v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1z"/></svg>
-    </button>
     <button id="top-login-btn" class="login-btn" type="button" onclick="signInWithGoogle()"><span class="google-g">G</span> Sign In</button>
     <button id="signout-btn" class="login-btn" type="button" onclick="signOutUser()" style="display:none">Sign Out</button>
   </div>
 </header>
 
 <main id="home-page" class="page-section active">
-  <article class="post-card">
-    <div class="post-header">
-      <img class="avatar" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop" alt="Maria's profile">
-      <div class="user-info"><h4>maria_designs</h4><p>2 hours ago</p></div>
-    </div>
-    <img class="post-image" src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&h=500&fit=crop" alt="Abstract design artwork">
-    <div class="post-actions"><button class="action-btn like-btn" aria-label="Like post">♡</button><button class="action-btn comment-btn" aria-label="Comment">💬</button></div>
-    <div class="post-caption"><p><strong>maria_designs</strong> Exploring new UI/UX designs today! #design #app</p></div>
-  </article>
-  <div id="new-posts"></div>
+  <div id="firestore-posts"></div>
 </main>
 
 <main id="search-page" class="page-section">
   <input id="search-input" type="search" class="search-box" placeholder="Search Noise..." aria-label="Search Noise">
-  <div class="trending-tabs"><button class="trend-tab active" type="button">Trending</button><button class="trend-tab" type="button">For You</button></div>
   <div id="search-results">
     <div class="trending-item"><img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=100&h=100&fit=crop" alt="Retro gaming"><div><h4>#RetroVibes</h4><p>24.5K Posts</p></div></div>
-    <div class="trending-item"><img src="https://images.unsplash.com/photo-1557683316-973673baf926?w=100&h=100&fit=crop" alt="Colorful abstract art"><div><h4>#DesignDaily</h4><p>12.8K Posts</p></div></div>
   </div>
 </main>
 
 <main id="login-warning-page" class="page-section">
-  <div class="login-warning"><h3>Please Sign In</h3><p>You need to sign in with your Google account to access this feature.</p><button class="login-btn" type="button" onclick="signInWithGoogle()">G &nbsp; Sign In with Google</button><p class="notice">Real Google sign-in requires Firebase setup in the code below.</p></div>
+  <div class="login-warning"><h3>Please Sign In</h3><p>You need to sign in with your Google account to access this feature.</p><button class="login-btn" type="button" onclick="signInWithGoogle()">G &nbsp; Sign In with Google</button></div>
 </main>
 
 <main id="upload-page" class="page-section">
   <h3 style="font-size:18px;margin:3px 0 15px">Create a post</h3>
   <label class="upload-area" for="post-image-input" id="upload-area"><span style="font-size:34px">＋</span><strong>Click to upload a photo</strong><span style="font-size:12px">Choose an image from your device</span></label>
   <input id="post-image-input" type="file" accept="image/*" hidden>
-  <div class="upload-form"><textarea id="post-caption-input" rows="3" placeholder="Write a caption..." style="width:100%;padding:12px;border:1px solid #dbdbdb;border-radius:9px;margin-bottom:13px;resize:vertical"></textarea><button class="btn-primary" type="button" onclick="sharePost()">Share Post</button></div>
-</main>
-
-<main id="chat-page" class="page-section">
-  <h2 class="chat-page-title">Chat Room 💬</h2><p class="chat-subtitle">Join rooms, meet new people, share ideas…</p>
-  <div class="chat-top-tabs"><button class="chat-tab active" type="button" data-chat-tab="room">Chat Rooms</button><button class="chat-tab" type="button" data-chat-tab="messages">Direct Messages</button></div>
-  <div id="chat-room-content">
-    <div class="room-filters" id="room-filters"><button class="room-filter active" data-filter="All">All</button><button class="room-filter" data-filter="Popular">Popular</button><button class="room-filter" data-filter="Gaming">Gaming</button><button class="room-filter" data-filter="Study">Study</button><button class="room-filter" data-filter="Music">Music</button><button class="room-filter" data-filter="Travel">Travel</button><button class="room-filter" data-filter="Friends">Friends</button></div>
-    <div id="room-list">
-      <article class="room-card" data-category="Popular Friends"><div class="room-avatar" style="background:#e0f1ff">🌍</div><div class="room-details"><h4>Global Hangout 🌍</h4><p>Make new friends from around the world!</p><div class="room-meta"><span>♟ 120 Members</span><span class="online">● 48 Online</span></div></div><div class="room-side"><button class="join-room-btn" data-room="Global Hangout 🌍">Join</button><span class="room-preview">Alex: Hey everyone! 👋</span></div></article>
-      <article class="room-card" data-category="Gaming Popular"><div class="room-avatar" style="background:#f0ddff">🎮</div><div class="room-details"><h4>Gaming Zone 🎮</h4><p>Play, discuss, and share your favorite games!</p><div class="room-meta"><span>♟ 86 Members</span><span class="online">● 32 Online</span></div></div><div class="room-side"><button class="join-room-btn" data-room="Gaming Zone 🎮">Join</button><span class="room-preview">Rohit: Who's playing BGMI?</span></div></article>
-      <article class="room-card" data-category="Study"><div class="room-avatar" style="background:#fff0c9">💡</div><div class="room-details"><h4>Study Together 📚</h4><p>Ask questions, share notes, help each other!</p><div class="room-meta"><span>♟ 54 Members</span><span class="online">● 21 Online</span></div></div><div class="room-side"><button class="join-room-btn" data-room="Study Together 📚">Join</button><span class="room-preview">Sneha: Can someone explain this?</span></div></article>
-      <article class="room-card" data-category="Music"><div class="room-avatar" style="background:#ffe0e8">🎵</div><div class="room-details"><h4>Music Vibes 🎧</h4><p>Share your favorite songs and artists!</p><div class="room-meta"><span>♟ 42 Members</span><span class="online">● 18 Online</span></div></div><div class="room-side"><button class="join-room-btn" data-room="Music Vibes 🎧">Join</button><span class="room-preview">Arjun: This song is 🔥</span></div></article>
-      <article class="room-card" data-category="Travel"><div class="room-avatar" style="background:#d9f0ff">✈️</div><div class="room-details"><h4>Travel Diaries ✈️</h4><p>Share your travel stories and dream destinations!</p><div class="room-meta"><span>♟ 37 Members</span><span class="online">● 14 Online</span></div></div><div class="room-side"><button class="join-room-btn" data-room="Travel Diaries ✈️">Join</button><span class="room-preview">Meera: Next stop: Maldives!</span></div></article>
-      <article class="room-card" data-category="Friends Popular"><div class="room-avatar" style="background:#e9e0ff">👥</div><div class="room-details"><h4>Friends Forever 💙</h4><p>A safe space for real conversations!</p><div class="room-meta"><span>♟ 65 Members</span><span class="online">● 27 Online</span></div></div><div class="room-side"><button class="join-room-btn" data-room="Friends Forever 💙">Join</button><span class="room-preview">Dipu: Good morning everyone ☀️</span></div></article>
-      <article class="room-card" data-category="Popular"><div class="room-avatar" style="background:#d5f8ef">🎨</div><div class="room-details"><h4>Art & Creativity 🎨</h4><p>Show your art, get feedback, and be inspired!</p><div class="room-meta"><span>♟ 28 Members</span><span class="online">● 11 Online</span></div></div><div class="room-side"><button class="join-room-btn" data-room="Art & Creativity 🎨">Join</button><span class="room-preview">Anu: Just finished this sketch ✍️</span></div></article>
+  <div class="upload-form">
+    <textarea id="post-caption-input" rows="3" placeholder="Write a caption..." style="width:100%;padding:12px;border:1px solid #dbdbdb;border-radius:9px;margin-bottom:13px;resize:vertical"></textarea>
+    
+    <div id="upload-progress-container">
+      <span id="progress-text" style="font-size:13px;font-weight:600;color:var(--pink)">Uploading... 0%</span>
+      <div class="progress-bar-bg"><div id="progress-bar-fill" class="progress-bar-fill"></div></div>
     </div>
-    <button class="create-room-btn" id="create-room-btn" type="button">＋ Create a Chat Room</button>
-    <section class="room-create-panel" id="room-create-panel"><h3 style="font-size:16px">Create your room ✨</h3><p class="notice">Limits: up to 1 public room and 2 private rooms per signed-in account.</p><form id="room-create-form"><label for="new-room-name">Room name</label><input id="new-room-name" maxlength="40" required placeholder="e.g. Friends Hangout"><label for="new-room-desc">Description</label><textarea id="new-room-desc" rows="2" maxlength="120" placeholder="What is this room about?"></textarea><label for="new-room-type">Privacy</label><select id="new-room-type"><option value="public">Public — anyone can discover</option><option value="private">Private — invite only</option></select><label for="new-room-category">Category</label><select id="new-room-category"><option>Friends</option><option>Gaming</option><option>Study</option><option>Music</option><option>Travel</option><option>Popular</option></select><div class="room-create-actions"><button type="submit">Create Room</button><button class="cancel" id="cancel-create-room" type="button">Cancel</button></div></form></section>
-    <p class="notice">Room list preview: sign in to open a room. Live messages shared between users need Firebase/Firestore.</p>
+
+    <button id="share-post-btn" class="btn-primary" type="button" onclick="sharePost()">Share Post</button>
   </div>
-  <div id="messages-content" style="display:none"><div class="empty-state">No direct messages yet. Join a room and start meeting people!</div></div>
-  <div id="room-chat-view" class="room-chat-view" style="display:none"><div class="room-chat-header"><button class="room-back" id="room-back-btn" aria-label="Back to rooms">‹</button><div class="room-avatar" style="width:40px;height:40px;font-size:20px;background:#ffe0e8">💬</div><div><h4 id="active-room-name">Chat Room</h4><p style="font-size:11px;color:var(--muted)">Room conversation preview</p></div></div><div class="room-chat-body" id="room-chat-body"><div class="room-message">Welcome! Keep the conversation friendly ✨</div></div><div class="noise-economy"><div class="coin-balance">🪙 Coins: <strong id="coin-balance">100</strong></div><button type="button" id="recharge-btn">＋ Recharge</button><button type="button" id="gift-btn">🎁 Send Gift</button><button type="button" id="battle-btn">⚔️ Battle</button></div><div class="room-tools"><button type="button" id="room-gif-btn">GIF 🎞️</button><button type="button" id="room-add-btn">Add person ＋</button><button type="button" id="room-block-btn">Block user 🚫</button><button type="button" id="room-report-btn">Report ⚑</button></div><form class="room-compose" id="room-compose"><input id="room-message-input" placeholder="Write a message…" autocomplete="off"><button type="submit" aria-label="Send message">➤</button></form></div>
 </main>
 
 <main id="profile-page" class="page-section">
   <div class="profile-header">
-    <div class="profile-pic-container"><img src="https://ui-avatars.com/api/?name=User&background=fc6076&color=fff" id="main-profile-pic" class="profile-pic" alt="Profile photo"><button class="edit-pic-btn" type="button" onclick="document.getElementById('file-input').click()" aria-label="Change profile photo">📷</button><input type="file" id="file-input" hidden accept="image/*"></div>
+    <div class="profile-pic-container"><img src="https://ui-avatars.com/api/?name=User&background=fc6076&color=fff" id="main-profile-pic" class="profile-pic" alt="Profile photo"></div>
     <h3 id="profile-heading">Your Profile</h3><p id="profile-email" style="font-size:12px;color:#8e8e8e;margin-top:3px"></p>
   </div>
   <form class="upload-form profile-form" id="profile-form">
     <label for="prof-name">Full Name</label><input type="text" id="prof-name" value="User" autocomplete="name">
     <label for="prof-username">Username</label><input type="text" id="prof-username" value="user_name" autocomplete="username">
-    <label for="prof-gmail">Gmail ID</label><input type="email" id="prof-gmail" value="" placeholder="Sign in to load your email" readonly>
     <button class="btn-primary" type="submit">Save Profile</button>
-    <p class="notice">Profile edits are stored in this page session. Add a database to save them across devices.</p>
   </form>
 </main>
 
@@ -158,14 +129,14 @@ button{cursor:pointer}
   <button class="nav-item active" type="button" aria-label="Home" onclick="openPage('home-page',this)"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></button>
   <button class="nav-item" type="button" aria-label="Search" onclick="openPage('search-page',this)"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
   <button class="nav-item" type="button" aria-label="Upload" onclick="openPage('upload-page',this)"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg></button>
-  <button class="nav-item" type="button" aria-label="Chat Room" onclick="openPage('chat-page',this)"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg></button>
-  <button class="nav-item" type="button" id="nav-profile-btn" aria-label="Profile" onclick="openPage('profile-page',this)"><svg id="nav-profile-svg" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></button>
+  <button class="nav-item" type="button" aria-label="Profile" onclick="openPage('profile-page',this)"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></button>
 </nav>
 </div>
 
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import { getFirestore, collection, addDoc, getDocs, query, orderBy, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyC5xXw2IYI-6Ica2aH8rdw5mhKGDmI4zJ0",
@@ -178,20 +149,22 @@ const firebaseConfig = {
 };
 
 let auth = null;
+let db = null;
 let firebaseReady = false;
-if (!Object.values(firebaseConfig).some(v => String(v).startsWith("YOUR_"))) {
-  try {
-    const app = initializeApp(firebaseConfig);
-    auth = getAuth(app);
-    firebaseReady = true;
-    onAuthStateChanged(auth, user => {
-      if (user) applySignedInUser(user);
-      else applySignedOutState();
-    });
-  } catch (error) {
-    console.error("Firebase initialization failed:", error);
-  }
+
+try {
+  const app = initializeApp(firebaseConfig);
+  auth = getAuth(app);
+  db = getFirestore(app);
+  firebaseReady = true;
+  onAuthStateChanged(auth, user => {
+    if (user) applySignedInUser(user);
+    else applySignedOutState();
+  });
+} catch (error) {
+  console.error("Firebase initialization failed:", error);
 }
+
 let isLoggedIn = false;
 let chosenPostImage = "";
 let currentUser = null;
@@ -211,7 +184,7 @@ window.openPage = function(pageId, navElement) {
 
 window.signInWithGoogle = async function() {
   if (!firebaseReady || !auth) {
-    alert("Google Sign In is not configured yet. Add your Firebase config in the firebaseConfig section of this HTML, then enable Google in Firebase Authentication.");
+    alert("Google Sign In is not configured yet.");
     return;
   }
   try {
@@ -226,7 +199,7 @@ window.signInWithGoogle = async function() {
 
 window.signOutUser = async function() {
   if (auth && firebaseReady) {
-    try { await signOut(auth); } catch (error) { alert("Could not sign out. Please try again."); return; }
+    try { await signOut(auth); } catch (error) { return; }
   }
   applySignedOutState();
   openPage("home-page",document.querySelectorAll(".nav-item")[0]);
@@ -240,42 +213,24 @@ function applySignedInUser(user) {
   const photo = user.photoURL || defaultAvatar;
   $("main-profile-pic").src = photo;
   $("prof-name").value = user.displayName || "New User";
+  $("prof-username").value = (user.displayName || "user").toLowerCase().replace(/\s+/g,"_");
   $("prof-gmail").value = user.email || "";
   $("profile-email").textContent = user.email || "";
   $("profile-heading").textContent = user.displayName || "Your Profile";
-  const nav = $("nav-profile-btn");
-  nav.innerHTML = `<img id="nav-profile-img" class="nav-profile-img" alt="Profile photo">`;
-  $("nav-profile-img").src = photo;
   openPage("home-page",document.querySelectorAll(".nav-item")[0]);
 }
+
 function applySignedOutState() {
   currentUser = null;
   isLoggedIn = false;
   $("top-login-btn").style.display = "inline-flex";
   $("signout-btn").style.display = "none";
   $("main-profile-pic").src = defaultAvatar;
-  $("prof-name").value = "User";
-  $("prof-gmail").value = "";
-  $("profile-email").textContent = "";
-  $("profile-heading").textContent = "Your Profile";
-  $("nav-profile-btn").innerHTML = '<svg id="nav-profile-svg" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>';
 }
-$("file-input").addEventListener("change", event => {
-  const file = event.target.files && event.target.files[0];
-  if (!file) return;
-  if (!file.type.startsWith("image/")) { alert("Please choose an image file."); return; }
-  const reader = new FileReader();
-  reader.onload = e => {
-    $("main-profile-pic").src = e.target.result;
-    const navImg = $("nav-profile-img");
-    if (navImg) navImg.src = e.target.result;
-  };
-  reader.readAsDataURL(file);
-});
+
 $("post-image-input").addEventListener("change", event => {
   const file = event.target.files && event.target.files[0];
   if (!file) return;
-  if (!file.type.startsWith("image/")) { alert("Please choose an image file."); return; }
   const reader = new FileReader();
   reader.onload = e => {
     chosenPostImage = e.target.result;
@@ -283,86 +238,120 @@ $("post-image-input").addEventListener("change", event => {
   };
   reader.readAsDataURL(file);
 });
-window.sharePost = function() {
+
+window.sharePost = async function() {
   if (!isLoggedIn) { openPage("login-warning-page",null); return; }
   if (!chosenPostImage) { alert("Please choose a photo first."); return; }
+  
   const caption = $("post-caption-input").value.trim();
-  const card = document.createElement("article");
-  card.className = "post-card";
-  const safeName = $("prof-username").value.trim() || (currentUser?.displayName || "new_user").replace(/\s+/g,"_");
-  const header = document.createElement("div"); header.className = "post-header";
-  const avatar = document.createElement("img"); avatar.className = "avatar"; avatar.src = $("main-profile-pic").src; avatar.alt = "Profile";
-  const info = document.createElement("div"); info.className = "user-info";
-  const h = document.createElement("h4"); h.textContent = safeName;
-  const time = document.createElement("p"); time.textContent = "just now";
-  info.append(h,time); header.append(avatar,info);
-  const image = document.createElement("img"); image.className = "post-image"; image.src = chosenPostImage; image.alt = "User post";
-  const actions = document.createElement("div"); actions.className = "post-actions";
-  const like = document.createElement("button"); like.className = "action-btn like-btn"; like.textContent = "♡"; like.setAttribute("aria-label","Like post");
-  like.addEventListener("click",()=>{like.classList.toggle("liked");like.textContent=like.classList.contains("liked")?"❤️":"♡";});
-  const comment = document.createElement("button"); comment.className = "action-btn"; comment.textContent = "💬"; comment.addEventListener("click",()=>alert("Comments are not connected yet."));
-  actions.append(like,comment);
-  const cap = document.createElement("div"); cap.className = "post-caption";
-  const p = document.createElement("p"); const strong = document.createElement("strong"); strong.textContent = safeName; p.append(strong,document.createTextNode(" "+caption)); cap.append(p);
-  card.append(header,image,actions,cap); $("new-posts").prepend(card);
-  $("post-caption-input").value = ""; chosenPostImage = ""; $("post-image-input").value = "";
-  $("upload-area").innerHTML = '<span style="font-size:34px">＋</span><strong>Click to upload a photo</strong><span style="font-size:12px">Choose an image from your device</span>';
-  openPage("home-page",document.querySelectorAll(".nav-item")[0]);
+  const safeName = $("prof-username").value.trim() || "user";
+  const avatarUrl = $("main-profile-pic").src;
+
+  const progressContainer = $("upload-progress-container");
+  const progressBarFill = $("progress-bar-fill");
+  const progressText = $("progress-text");
+  const shareBtn = $("share-post-btn");
+
+  progressContainer.style.display = "block";
+  shareBtn.disabled = true;
+  shareBtn.style.opacity = "0.6";
+
+  let percent = 0;
+  const interval = setInterval(() => {
+    percent += 15;
+    if (percent > 85) percent = 85;
+    progressBarFill.style.width = percent + "%";
+    progressText.textContent = `Uploading... ${percent}%`;
+  }, 150);
+
+  try {
+    if (db) {
+      await addDoc(collection(db, "posts"), {
+        username: safeName,
+        avatar: avatarUrl,
+        image: chosenPostImage,
+        caption: caption,
+        createdAt: serverTimestamp()
+      });
+    }
+
+    clearInterval(interval);
+    progressBarFill.style.width = "100%";
+    progressText.textContent = "Upload Complete! 100%";
+
+    setTimeout(() => {
+      progressContainer.style.display = "none";
+      progressBarFill.style.width = "0%";
+      shareBtn.disabled = false;
+      shareBtn.style.opacity = "1";
+      
+      $("post-caption-input").value = "";
+      chosenPostImage = "";
+      $("post-image-input").value = "";
+      $("upload-area").innerHTML = '<span style="font-size:34px">＋</span><strong>Click to upload a photo</strong><span style="font-size:12px">Choose an image from your device</span>';
+      
+      openPage("home-page",document.querySelectorAll(".nav-item")[0]);
+      loadPosts();
+    }, 600);
+
+  } catch (err) {
+    clearInterval(interval);
+    progressContainer.style.display = "none";
+    shareBtn.disabled = false;
+    shareBtn.style.opacity = "1";
+    console.error(err);
+    alert("Failed to share post: " + err.message);
+  }
 };
+
+async function loadPosts() {
+  if (!db) return;
+  try {
+    const q = query(collection(db, "posts"), orderBy("createdAt", "desc"));
+    const querySnapshot = await getDocs(q);
+    const container = $("firestore-posts");
+    if(!container) return;
+    container.innerHTML = "";
+    
+    querySnapshot.forEach(docSnap => {
+      const data = docSnap.data();
+      const card = document.createElement("article");
+      card.className = "post-card";
+      
+      const header = document.createElement("div"); header.className = "post-header";
+      const avatar = document.createElement("img"); avatar.className = "avatar"; avatar.src = data.avatar || defaultAvatar; avatar.alt = "Profile";
+      const info = document.createElement("div"); info.className = "user-info";
+      const h = document.createElement("h4"); h.textContent = data.username || "user";
+      const time = document.createElement("p"); time.textContent = "just now";
+      info.append(h,time); header.append(avatar,info);
+      
+      const image = document.createElement("img"); image.className = "post-image"; image.src = data.image; image.alt = "User post";
+      
+      const actions = document.createElement("div"); actions.className = "post-actions";
+      const like = document.createElement("button"); like.className = "action-btn like-btn"; like.textContent = "♡";
+      like.addEventListener("click",()=>{like.classList.toggle("liked");like.textContent=like.classList.contains("liked")?"❤️":"♡";});
+      const comment = document.createElement("button"); comment.className = "action-btn"; comment.textContent = "💬";
+      actions.append(like,comment);
+      
+      const cap = document.createElement("div"); cap.className = "post-caption";
+      const p = document.createElement("p"); const strong = document.createElement("strong"); strong.textContent = data.username || "user"; p.append(strong,document.createTextNode(" "+(data.caption || ""))); cap.append(p);
+      
+      card.append(header,image,actions,cap);
+      container.append(card);
+    });
+  } catch (e) {
+    console.error("Error loading posts:", e);
+  }
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+  loadPosts();
+});
+
 $("profile-form").addEventListener("submit",event=>{
   event.preventDefault();
   $("profile-heading").textContent = $("prof-name").value.trim() || "Your Profile";
-  alert("Profile updated for this session.");
-});
-document.querySelectorAll(".like-btn").forEach(button=>button.addEventListener("click",function(){
-  this.classList.toggle("liked"); this.textContent=this.classList.contains("liked")?"❤️":"♡";
-}));
-document.querySelectorAll(".comment-btn").forEach(button=>button.addEventListener("click",()=>alert("Comments are not connected yet.")));
-$("notification-btn").addEventListener("click",()=>alert("You’re all caught up!"));
-document.querySelectorAll(".trend-tab").forEach(tab=>tab.addEventListener("click",()=>{
-  document.querySelectorAll(".trend-tab").forEach(t=>t.classList.remove("active"));tab.classList.add("active");
-}));
-document.querySelectorAll(".chat-tab").forEach(tab=>tab.addEventListener("click",()=>{
-  document.querySelectorAll(".chat-tab").forEach(t=>t.classList.remove("active"));tab.classList.add("active");
-  const room = tab.dataset.chatTab === "room";
-  $("chat-room-content").style.display = room ? "block" : "none";
-  $("messages-content").style.display = room ? "none" : "block";
-}));
-let activeRoomName = "";
-document.querySelectorAll(".room-filter").forEach(btn=>btn.addEventListener("click",()=>{
-  document.querySelectorAll(".room-filter").forEach(b=>b.classList.remove("active"));btn.classList.add("active");
-  const filter=btn.dataset.filter;
-  document.querySelectorAll("#room-list .room-card").forEach(card=>{card.style.display=(filter==="All" || card.dataset.category.split(" ").includes(filter))?"grid":"none";});
-}));
-document.querySelectorAll(".join-room-btn").forEach(btn=>btn.addEventListener("click",()=>{
-  if(!isLoggedIn){openPage("login-warning-page",null);return;}
-  activeRoomName=btn.dataset.room;$('active-room-name').textContent=activeRoomName;
-  $('room-chat-body').innerHTML='<div class="room-message">Welcome to '+activeRoomName.replace(/&/g,'&amp;').replace(/</g,'&lt;')+'! Keep the conversation friendly ✨</div>';
-  $('chat-room-content').style.display='none';$('messages-content').style.display='none';$('room-chat-view').style.display='block';
-}));
-$('room-back-btn').addEventListener('click',()=>{$('room-chat-view').style.display='none';$('chat-room-content').style.display='block';});
-$('room-compose').addEventListener('submit',event=>{event.preventDefault();const input=$('room-message-input');const value=input.value.trim();if(!value)return;const msg=document.createElement('div');msg.className='room-message mine';msg.textContent=value;$('room-chat-body').append(msg);input.value='';$('room-chat-body').scrollTop=$('room-chat-body').scrollHeight;});
-const roomPanel=$('room-create-panel');$('create-room-btn').addEventListener('click',()=>{if(!isLoggedIn){openPage('login-warning-page',null);return;}roomPanel.style.display=roomPanel.style.display==='block'?'none':'block';});
-$('cancel-create-room').addEventListener('click',()=>{roomPanel.style.display='none';});$('room-create-form').addEventListener('submit',event=>{event.preventDefault();if(!isLoggedIn){openPage('login-warning-page',null);return;}const name=$('new-room-name').value.trim();const type=$('new-room-type').value;const owned=[...document.querySelectorAll('#room-list .room-card[data-owned="true"]')];const pub=owned.filter(c=>c.dataset.privacy==='public').length;const priv=owned.filter(c=>c.dataset.privacy==='private').length;if(type==='public'&&pub>=1){alert('You can create only 1 public room.');return;}if(type==='private'&&priv>=2){alert('You can create only 2 private rooms per account.');return;}const card=document.createElement('article');card.className='room-card';card.dataset.category=$('new-room-category').value;card.dataset.owned='true';card.dataset.privacy=type;const avatar=document.createElement('div');avatar.className='room-avatar';avatar.style.background='#ffe0e8';avatar.textContent=type==='private'?'🔒':'💬';const details=document.createElement('div');details.className='room-details';const h=document.createElement('h4');h.textContent=name;const badge=document.createElement('span');badge.className='room-type';badge.textContent=type==='private'?'PRIVATE':'PUBLIC';h.append(badge);const desc=document.createElement('p');desc.textContent=$('new-room-desc').value.trim()||'A new Noise community room.';const meta=document.createElement('div');meta.className='room-meta';meta.textContent='♟ 1 Member · Created by you';details.append(h,desc,meta);const side=document.createElement('div');side.className='room-side';const join=document.createElement('button');join.className='join-room-btn';join.textContent='Open';join.addEventListener('click',()=>openRoom(name,type));side.append(join);card.append(avatar,details,side);$('room-list').prepend(card);$('room-create-form').reset();roomPanel.style.display='none';alert('Room created in this browser preview. Persistent rooms and private invite security require a backend.');});
-function openRoom(name,type='public'){if(!isLoggedIn){openPage('login-warning-page',null);return;}activeRoomName=name;$('active-room-name').textContent=name+' '+(type==='private'?'🔒':'');$('room-chat-body').replaceChildren();const welcome=document.createElement('div');welcome.className='room-message';welcome.textContent='Welcome to '+name+'! Keep the conversation friendly ✨';$('room-chat-body').append(welcome);$('chat-room-content').style.display='none';$('messages-content').style.display='none';$('room-chat-view').style.display='block';}
-document.querySelectorAll('.join-room-btn').forEach(btn=>btn.addEventListener('click',()=>openRoom(btn.dataset.room)));
-$('room-back-btn').addEventListener('click',()=>{$('room-chat-view').style.display='none';$('chat-room-content').style.display='block';});
-$('room-compose').addEventListener('submit',event=>{event.preventDefault();const input=$('room-message-input');const value=input.value.trim();if(!value)return;const msg=document.createElement('div');msg.className='room-message mine';msg.textContent=value;$('room-chat-body').append(msg);input.value='';$('room-chat-body').scrollTop=$('room-chat-body').scrollHeight;});
-
-let noiseCoins=100;const coinBalance=document.getElementById('coin-balance');function updateCoins(){if(coinBalance)coinBalance.textContent=noiseCoins;}
-document.getElementById('recharge-btn')?.addEventListener('click',()=>{if(!isLoggedIn){openPage('login-warning-page',null);return;}const choice=prompt('Demo recharge packages:\n1) 100 coins - free demo\n2) 500 coins - demo\n3) 1000 coins - demo\nEnter 1, 2 or 3');const packs={'1':100,'2':500,'3':1000};if(packs[choice]){noiseCoins+=packs[choice];updateCoins();alert('Demo recharge complete: +'+packs[choice]+' coins. No real payment was taken.');}});
-document.getElementById('gift-btn')?.addEventListener('click',()=>{if(!isLoggedIn){openPage('login-warning-page',null);return;}const gifts=[['🌹 Rose',10],['❤️ Heart',25],['🧸 Teddy',50],['💎 Diamond',100],['🚀 Rocket',200]];const choice=prompt('Choose a gift:\n'+gifts.map((g,i)=>(i+1)+') '+g[0]+' — '+g[1]+' coins').join('\n')+'\nEnter 1-5');const g=gifts[Number(choice)-1];if(!g)return;if(noiseCoins<g[1]){alert('Not enough coins. Please recharge first.');return;}noiseCoins-=g[1];updateCoins();const el=document.createElement('div');el.className='room-message mine';el.innerHTML='';const span=document.createElement('span');span.className='gift-pop';span.textContent=g[0].split(' ')[0];el.append(span,document.createTextNode(' Gift sent! ('+g[1]+' coins)'));document.getElementById('room-chat-body').append(el);});
-document.getElementById('battle-btn')?.addEventListener('click',()=>{if(!isLoggedIn){openPage('login-warning-page',null);return;}const mode=prompt('Battle mode (demo):\n1) Emoji battle ⚔️\n2) Gift battle 🎁\n3) Cancel\nEnter 1 or 2');if(mode==='1'){const el=document.createElement('div');el.className='room-message mine';el.textContent='⚔️ Battle challenge sent! Waiting for another player (demo).';document.getElementById('room-chat-body').append(el);}else if(mode==='2'){alert('Gift Battle preview: send gifts to support a player. Live scores require a backend.');}});
-
-$('room-gif-btn').addEventListener('click',()=>{const url=prompt('Paste a GIF image URL (https://…):');if(!url)return;if(!/^https:\/\//i.test(url)){alert('Please use a secure https GIF URL.');return;}const wrap=document.createElement('div');wrap.className='room-message mine';const img=document.createElement('img');img.src=url;img.alt='Shared GIF';img.style.maxWidth='180px';img.style.borderRadius='10px';img.onerror=()=>{wrap.textContent='Could not load this GIF URL.'};wrap.append(img);$('room-chat-body').append(wrap);});$('room-add-btn').addEventListener('click',()=>{const email=prompt('Enter the person’s Gmail address to invite:');if(email&&/^[^\s@]+@gmail\.com$/i.test(email))alert('Invite preview for '+email+'. Real invites require Firebase/backend.');else if(email)alert('Please enter a valid @gmail.com address.');});
-$('room-block-btn').addEventListener('click',()=>{const who=prompt('Enter the username to block:');if(who)alert(who+' blocked in preview only. Add backend moderation to enforce this across devices.');});
-$('room-report-btn').addEventListener('click',()=>{const reason=prompt('Why are you reporting this room/message?');if(reason)alert('Report noted in this preview. A real report system needs a database/moderation workflow.');});
-
-$("search-input").addEventListener("input",event=>{
-  const q=event.target.value.trim().toLowerCase();
-  document.querySelectorAll("#search-results .trending-item").forEach(item=>{
-    item.style.display=item.textContent.toLowerCase().includes(q)?"flex":"none";
-  });
+  alert("Profile updated successfully!");
 });
 </script>
 </body>
